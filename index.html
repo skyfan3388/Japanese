@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>日本語日常生活生字表 100｜可發音版</title>
+  <style>
+    :root {
+      --bg: #f7f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #dc2626;
+      --primary-dark: #991b1b;
+      --border: #e5e7eb;
+      --soft: #fee2e2;
+      --soft-2: #fff7ed;
+      --thead: #111827;
+      --green: #059669;
+      --blue: #2563eb;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
+        "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(220, 38, 38, 0.12), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.08), transparent 32%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 40px 18px 24px;
+      text-align: center;
+    }
+
+    .title-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--soft);
+      color: var(--primary-dark);
+      border: 1px solid #fecaca;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      font-size: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 5vw, 52px);
+      letter-spacing: 0.02em;
+      color: #111827;
+    }
+
+    .subtitle {
+      margin: 12px auto 0;
+      max-width: 850px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    main {
+      width: min(1280px, calc(100% - 28px));
+      margin: 0 auto 50px;
+    }
+
+    .panel {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius: 22px;
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: 1fr 180px 180px;
+      gap: 12px;
+      align-items: center;
+    }
+
+    input,
+    select,
+    button {
+      font: inherit;
+    }
+
+    .search {
+      width: 100%;
+      padding: 13px 15px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      outline: none;
+      background: #fff;
+      color: var(--text);
+    }
+
+    .search:focus,
+    select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.12);
+    }
+
+    select {
+      width: 100%;
+      padding: 13px 15px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #fff;
+      color: var(--text);
+      outline: none;
+    }
+
+    .stats {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .chip {
+      background: #f3f4f6;
+      border: 1px solid var(--border);
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    .quick-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .main-btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 9px 14px;
+      cursor: pointer;
+      background: #111827;
+      color: white;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .main-btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.92;
+    }
+
+    .main-btn.secondary {
+      background: #f3f4f6;
+      color: #111827;
+      border: 1px solid var(--border);
+    }
+
+    .sound-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 8px;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--primary-dark);
+      cursor: pointer;
+      font-size: 16px;
+      padding: 0;
+      vertical-align: middle;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    .sound-btn:hover {
+      background: var(--soft);
+      transform: translateY(-1px);
+    }
+
+    .sound-btn:active {
+      transform: scale(0.94);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1180px;
+    }
+
+    thead {
+      background: var(--thead);
+      color: #fff;
+    }
+
+    th {
+      text-align: left;
+      padding: 13px 12px;
+      font-size: 13px;
+      white-space: nowrap;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    td {
+      border-top: 1px solid var(--border);
+      padding: 12px;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    tbody tr {
+      transition: background 0.15s ease;
+    }
+
+    tbody tr:hover {
+      background: #fff7ed;
+    }
+
+    .num {
+      color: var(--muted);
+      font-weight: 700;
+      width: 52px;
+    }
+
+    .kana {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary-dark);
+      white-space: nowrap;
+    }
+
+    .kanji {
+      font-size: 18px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .romaji {
+      color: var(--blue);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .meaning {
+      font-weight: 700;
+    }
+
+    .english {
+      color: var(--muted);
+    }
+
+    details {
+      background: #f9fafb;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 9px 11px;
+      min-width: 340px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: #111827;
+    }
+
+    .sentence-box {
+      margin-top: 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .jp-sentence {
+      font-size: 17px;
+      font-weight: 800;
+      color: #111827;
+    }
+
+    .grammar {
+      border-left: 4px solid var(--primary);
+      background: #fff;
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: #374151;
+    }
+
+    mark {
+      background: #fde68a;
+      color: inherit;
+      padding: 0 2px;
+      border-radius: 4px;
+    }
+
+    .cards {
+      display: none;
+      gap: 14px;
+    }
+
+    .vocab-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+
+    .card-number {
+      background: var(--soft);
+      color: var(--primary-dark);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-weight: 800;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .card-kana {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--primary-dark);
+    }
+
+    .card-kanji {
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .card-grid {
+      display: grid;
+      gap: 7px;
+      font-size: 15px;
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .mobile-sentence {
+      background: #f9fafb;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      margin-top: 12px;
+    }
+
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 30px;
+      color: var(--muted);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .notice {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .table-wrap {
+        display: none;
+      }
+
+      .cards {
+        display: grid;
+      }
+
+      main {
+        width: min(100% - 20px, 760px);
+      }
+
+      header {
+        padding-top: 28px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .panel,
+      .quick-buttons,
+      footer,
+      .sound-btn {
+        display: none;
+      }
+
+      main {
+        width: 100%;
+        margin: 0;
+      }
+
+      .table-wrap {
+        display: block;
+        box-shadow: none;
+        border: 0;
+      }
+
+      table {
+        min-width: 100%;
+        font-size: 11px;
+      }
+
+      th,
+      td {
+        padding: 6px;
+      }
+
+      details {
+        border: 0;
+        padding: 0;
+        background: transparent;
+      }
+
+      details[open] summary {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="title-badge">🇯🇵 Japanese Daily Vocabulary with Voice</div>
+    <h1>日本語日常生活生字表 100</h1>
+    <p class="subtitle">
+      包含假名、羅馬拼音、漢字、中文、英文、例句與語法解釋。按 🔊 可以聽單字或例句發音。
+    </p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="toolbar">
+        <input
+          id="searchInput"
+          class="search"
+          type="search"
+          placeholder="搜尋：例如 水、mizu、drink、食べます、を..."
+        />
+
+        <select id="categorySelect" aria-label="分類">
+          <option value="all">全部分類</option>
+          <option value="time">時間</option>
+          <option value="place">地點</option>
+          <option value="food">食物飲品</option>
+          <option value="object">物品</option>
+          <option value="transport">交通</option>
+          <option value="people">人物</option>
+          <option value="work">學習工作</option>
+          <option value="weather">天氣</option>
+          <option value="adjective">形容詞</option>
+          <option value="verb">動詞</option>
+        </select>
+
+        <select id="daySelect" aria-label="每日進度">
+          <option value="all">全部 100 個</option>
+          <option value="1">Day 1：1-10</option>
+          <option value="2">Day 2：11-20</option>
+          <option value="3">Day 3：21-30</option>
+          <option value="4">Day 4：31-40</option>
+          <option value="5">Day 5：41-50</option>
+          <option value="6">Day 6：51-60</option>
+          <option value="7">Day 7：61-70</option>
+          <option value="8">Day 8：71-80</option>
+          <option value="9">Day 9：81-90</option>
+          <option value="10">Day 10：91-100</option>
+        </select>
+      </div>
+
+      <div class="stats">
+        <span class="chip">目前顯示：<strong id="count">100</strong> 個</span>
+        <span class="chip">建議：每天背 10 個</span>
+        <span class="chip">按 🔊 聽發音</span>
+      </div>
+
+      <div class="quick-buttons">
+        <button id="expandAll" class="main-btn">展開所有例句</button>
+        <button id="collapseAll" class="main-btn secondary">收合所有例句</button>
+        <button id="printBtn" class="main-btn secondary">列印 / 存成 PDF</button>
+      </div>
+
+      <p class="notice">
+        提示：如果第一次按 🔊 沒有聲音，請再按一次。部分瀏覽器需要使用者互動後才會載入語音。
+      </p>
+    </section>
+
+    <section class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>假名</th>
+            <th>Romaji</th>
+            <th>漢字</th>
+            <th>中文</th>
+            <th>English</th>
+            <th>例句與語法</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </section>
+
+    <section id="cards" class="cards"></section>
+
+    <section id="noResults" class="no-results">
+      找不到符合條件的單字。請試試其他關鍵字或分類。
+    </section>
+  </main>
+
+  <footer>
+    Made for Japanese learners｜日本語日常単語 100
+  </footer>
+
+  <script>
+    const vocab = [
+      {id:1,cat:"time",kana:"あさ",romaji:"asa",kanji:"朝",zh:"早上",en:"morning",sentence:"朝ごはんを食べます。",sRomaji:"Asa-gohan o tabemasu.",sZh:"我吃早餐。",sEn:"I eat breakfast.",grammar:"「を」標示受詞；「食べます」是禮貌形。"},
+      {id:2,cat:"time",kana:"ひる",romaji:"hiru",kanji:"昼",zh:"中午",en:"noon/daytime",sentence:"昼に友達と会います。",sRomaji:"Hiru ni tomodachi to aimasu.",sZh:"我中午和朋友見面。",sEn:"I meet my friend at noon.",grammar:"「に」表時間；「と」表「和」。"},
+      {id:3,cat:"time",kana:"よる",romaji:"yoru",kanji:"夜",zh:"晚上",en:"night",sentence:"夜は静かです。",sRomaji:"Yoru wa shizuka desu.",sZh:"晚上很安靜。",sEn:"The night is quiet.",grammar:"「は」標示主題；「です」是判斷句禮貌形。"},
+      {id:4,cat:"time",kana:"きょう",romaji:"kyou",kanji:"今日",zh:"今天",en:"today",sentence:"今日は暑いです。",sRomaji:"Kyou wa atsui desu.",sZh:"今天很熱。",sEn:"Today is hot.",grammar:"い形容詞「暑い」直接接「です」。"},
+      {id:5,cat:"time",kana:"あした",romaji:"ashita",kanji:"明日",zh:"明天",en:"tomorrow",sentence:"明日、学校へ行きます。",sRomaji:"Ashita, gakkou e ikimasu.",sZh:"明天我去學校。",sEn:"I will go to school tomorrow.",grammar:"「へ」表方向；「行きます」是「去」的禮貌形。"},
+      {id:6,cat:"time",kana:"きのう",romaji:"kinou",kanji:"昨日",zh:"昨天",en:"yesterday",sentence:"昨日、映画を見ました。",sRomaji:"Kinou, eiga o mimashita.",sZh:"昨天我看了電影。",sEn:"I watched a movie yesterday.",grammar:"「見ました」是「看」的過去禮貌形。"},
+      {id:7,cat:"place",kana:"いえ",romaji:"ie",kanji:"家",zh:"家",en:"house/home",sentence:"家に帰ります。",sRomaji:"Ie ni kaerimasu.",sZh:"我回家。",sEn:"I go home.",grammar:"「に」表目的地；「帰ります」是回去。"},
+      {id:8,cat:"place",kana:"へや",romaji:"heya",kanji:"部屋",zh:"房間",en:"room",sentence:"部屋を掃除します。",sRomaji:"Heya o souji shimasu.",sZh:"我打掃房間。",sEn:"I clean the room.",grammar:"「名詞 + を + します」表做某事。"},
+      {id:9,cat:"place",kana:"がっこう",romaji:"gakkou",kanji:"学校",zh:"學校",en:"school",sentence:"学校で勉強します。",sRomaji:"Gakkou de benkyou shimasu.",sZh:"我在學校學習。",sEn:"I study at school.",grammar:"「で」表動作發生地點。"},
+      {id:10,cat:"place",kana:"かいしゃ",romaji:"kaisha",kanji:"会社",zh:"公司",en:"company",sentence:"会社へ行きます。",sRomaji:"Kaisha e ikimasu.",sZh:"我去公司。",sEn:"I go to the company.",grammar:"「へ」表移動方向。"},
+
+      {id:11,cat:"place",kana:"えき",romaji:"eki",kanji:"駅",zh:"車站",en:"station",sentence:"駅で友達を待ちます。",sRomaji:"Eki de tomodachi o machimasu.",sZh:"我在車站等朋友。",sEn:"I wait for my friend at the station.",grammar:"「で」表地點；「を待つ」是等待某人。"},
+      {id:12,cat:"place",kana:"みせ",romaji:"mise",kanji:"店",zh:"店舖",en:"shop/store",sentence:"店でパンを買います。",sRomaji:"Mise de pan o kaimasu.",sZh:"我在店裡買麵包。",sEn:"I buy bread at the shop.",grammar:"「で」表購買地點；「を」標示受詞。"},
+      {id:13,cat:"place",kana:"びょういん",romaji:"byouin",kanji:"病院",zh:"醫院",en:"hospital",sentence:"病院へ行きます。",sRomaji:"Byouin e ikimasu.",sZh:"我去醫院。",sEn:"I go to the hospital.",grammar:"「へ行きます」表去某地。"},
+      {id:14,cat:"food",kana:"くすり",romaji:"kusuri",kanji:"薬",zh:"藥",en:"medicine",sentence:"薬を飲みます。",sRomaji:"Kusuri o nomimasu.",sZh:"我吃藥。",sEn:"I take medicine.",grammar:"日文「吃藥」用「薬を飲む」。"},
+      {id:15,cat:"food",kana:"みず",romaji:"mizu",kanji:"水",zh:"水",en:"water",sentence:"水を飲みます。",sRomaji:"Mizu o nomimasu.",sZh:"我喝水。",sEn:"I drink water.",grammar:"「飲みます」是喝。"},
+      {id:16,cat:"food",kana:"おちゃ",romaji:"ocha",kanji:"お茶",zh:"茶",en:"tea",sentence:"お茶をください。",sRomaji:"Ocha o kudasai.",sZh:"請給我茶。",sEn:"Please give me tea.",grammar:"「ください」表請求。"},
+      {id:17,cat:"food",kana:"ごはん",romaji:"gohan",kanji:"ご飯",zh:"飯/餐",en:"rice/meal",sentence:"ご飯を食べます。",sRomaji:"Gohan o tabemasu.",sZh:"我吃飯。",sEn:"I eat rice/a meal.",grammar:"「ご飯」可指白飯或一餐。"},
+      {id:18,cat:"food",kana:"パン",romaji:"pan",kanji:"—",zh:"麵包",en:"bread",sentence:"パンを買いました。",sRomaji:"Pan o kaimashita.",sZh:"我買了麵包。",sEn:"I bought bread.",grammar:"「買いました」是買的過去式。"},
+      {id:19,cat:"food",kana:"にく",romaji:"niku",kanji:"肉",zh:"肉",en:"meat",sentence:"肉が好きです。",sRomaji:"Niku ga suki desu.",sZh:"我喜歡肉。",sEn:"I like meat.",grammar:"「〜が好きです」表喜歡。"},
+      {id:20,cat:"food",kana:"さかな",romaji:"sakana",kanji:"魚",zh:"魚",en:"fish",sentence:"魚を食べません。",sRomaji:"Sakana o tabemasen.",sZh:"我不吃魚。",sEn:"I do not eat fish.",grammar:"「ません」是否定禮貌形。"},
+
+      {id:21,cat:"food",kana:"やさい",romaji:"yasai",kanji:"野菜",zh:"蔬菜",en:"vegetables",sentence:"野菜は体にいいです。",sRomaji:"Yasai wa karada ni ii desu.",sZh:"蔬菜對身體好。",sEn:"Vegetables are good for the body.",grammar:"「〜にいい」表對某事物好。"},
+      {id:22,cat:"food",kana:"くだもの",romaji:"kudamono",kanji:"果物",zh:"水果",en:"fruit",sentence:"果物を毎日食べます。",sRomaji:"Kudamono o mainichi tabemasu.",sZh:"我每天吃水果。",sEn:"I eat fruit every day.",grammar:"「毎日」是時間副詞。"},
+      {id:23,cat:"food",kana:"たまご",romaji:"tamago",kanji:"卵",zh:"蛋",en:"egg",sentence:"卵を二つ買います。",sRomaji:"Tamago o futatsu kaimasu.",sZh:"我買兩隻蛋。",sEn:"I buy two eggs.",grammar:"「二つ」是一般物品數量詞。"},
+      {id:24,cat:"food",kana:"ぎゅうにゅう",romaji:"gyuunyuu",kanji:"牛乳",zh:"牛奶",en:"milk",sentence:"牛乳を飲みます。",sRomaji:"Gyuunyuu o nomimasu.",sZh:"我喝牛奶。",sEn:"I drink milk.",grammar:"「を飲みます」表喝某物。"},
+      {id:25,cat:"food",kana:"コーヒー",romaji:"koohii",kanji:"—",zh:"咖啡",en:"coffee",sentence:"コーヒーを一杯ください。",sRomaji:"Koohii o ippai kudasai.",sZh:"請給我一杯咖啡。",sEn:"One coffee, please.",grammar:"「一杯」是飲品一杯。"},
+      {id:26,cat:"object",kana:"ほん",romaji:"hon",kanji:"本",zh:"書",en:"book",sentence:"本を読みます。",sRomaji:"Hon o yomimasu.",sZh:"我看書。",sEn:"I read a book.",grammar:"「読みます」是讀。"},
+      {id:27,cat:"object",kana:"えんぴつ",romaji:"enpitsu",kanji:"鉛筆",zh:"鉛筆",en:"pencil",sentence:"鉛筆で書きます。",sRomaji:"Enpitsu de kakimasu.",sZh:"我用鉛筆寫。",sEn:"I write with a pencil.",grammar:"「で」表工具。"},
+      {id:28,cat:"object",kana:"かばん",romaji:"kaban",kanji:"鞄",zh:"包包",en:"bag",sentence:"かばんを持っています。",sRomaji:"Kaban o motte imasu.",sZh:"我拿著包包。",sEn:"I am carrying a bag.",grammar:"「〜ています」表持續狀態。"},
+      {id:29,cat:"object",kana:"くつ",romaji:"kutsu",kanji:"靴",zh:"鞋",en:"shoes",sentence:"靴を履きます。",sRomaji:"Kutsu o hakimasu.",sZh:"我穿鞋。",sEn:"I put on shoes.",grammar:"穿鞋、褲子用「履く」。"},
+      {id:30,cat:"object",kana:"ふく",romaji:"fuku",kanji:"服",zh:"衣服",en:"clothes",sentence:"新しい服を買いました。",sRomaji:"Atarashii fuku o kaimashita.",sZh:"我買了新衣服。",sEn:"I bought new clothes.",grammar:"「新しい」是い形容詞。"},
+
+      {id:31,cat:"object",kana:"かさ",romaji:"kasa",kanji:"傘",zh:"雨傘",en:"umbrella",sentence:"傘を持って行きます。",sRomaji:"Kasa o motte ikimasu.",sZh:"我帶雨傘去。",sEn:"I take an umbrella with me.",grammar:"「持って行く」表帶去。"},
+      {id:32,cat:"object",kana:"でんわ",romaji:"denwa",kanji:"電話",zh:"電話",en:"phone/call",sentence:"母に電話します。",sRomaji:"Haha ni denwa shimasu.",sZh:"我打電話給媽媽。",sEn:"I call my mother.",grammar:"「に電話します」表打給某人。"},
+      {id:33,cat:"object",kana:"スマホ",romaji:"sumaho",kanji:"—",zh:"智能手機",en:"smartphone",sentence:"スマホを使います。",sRomaji:"Sumaho o tsukaimasu.",sZh:"我使用手機。",sEn:"I use a smartphone.",grammar:"「使います」是使用。"},
+      {id:34,cat:"transport",kana:"くるま",romaji:"kuruma",kanji:"車",zh:"車",en:"car",sentence:"車で会社へ行きます。",sRomaji:"Kuruma de kaisha e ikimasu.",sZh:"我坐車去公司。",sEn:"I go to work by car.",grammar:"「で」表交通工具。"},
+      {id:35,cat:"transport",kana:"でんしゃ",romaji:"densha",kanji:"電車",zh:"電車",en:"train",sentence:"電車に乗ります。",sRomaji:"Densha ni norimasu.",sZh:"我搭電車。",sEn:"I take the train.",grammar:"乘坐交通工具用「に乗る」。"},
+      {id:36,cat:"transport",kana:"バス",romaji:"basu",kanji:"—",zh:"巴士",en:"bus",sentence:"バスで学校へ行きます。",sRomaji:"Basu de gakkou e ikimasu.",sZh:"我坐巴士去學校。",sEn:"I go to school by bus.",grammar:"「で」表交通方式。"},
+      {id:37,cat:"transport",kana:"じてんしゃ",romaji:"jitensha",kanji:"自転車",zh:"單車",en:"bicycle",sentence:"自転車に乗ります。",sRomaji:"Jitensha ni norimasu.",sZh:"我騎單車。",sEn:"I ride a bicycle.",grammar:"「に乗ります」表乘坐/騎。"},
+      {id:38,cat:"place",kana:"みち",romaji:"michi",kanji:"道",zh:"路",en:"road/way",sentence:"この道は広いです。",sRomaji:"Kono michi wa hiroi desu.",sZh:"這條路很寬。",sEn:"This road is wide.",grammar:"「この + 名詞」表這個。"},
+      {id:39,cat:"place",kana:"まち",romaji:"machi",kanji:"町",zh:"城鎮/街",en:"town",sentence:"この町は静かです。",sRomaji:"Kono machi wa shizuka desu.",sZh:"這個城鎮很安靜。",sEn:"This town is quiet.",grammar:"な形容詞「静か」接「です」。"},
+      {id:40,cat:"people",kana:"ひと",romaji:"hito",kanji:"人",zh:"人",en:"person",sentence:"あの人は先生です。",sRomaji:"Ano hito wa sensei desu.",sZh:"那個人是老師。",sEn:"That person is a teacher.",grammar:"「AはBです」表 A 是 B。"},
+
+      {id:41,cat:"people",kana:"ともだち",romaji:"tomodachi",kanji:"友達",zh:"朋友",en:"friend",sentence:"友達と話します。",sRomaji:"Tomodachi to hanashimasu.",sZh:"我和朋友聊天。",sEn:"I talk with my friend.",grammar:"「と」表和某人一起。"},
+      {id:42,cat:"people",kana:"かぞく",romaji:"kazoku",kanji:"家族",zh:"家人",en:"family",sentence:"家族は四人です。",sRomaji:"Kazoku wa yonin desu.",sZh:"我家有四個人。",sEn:"My family has four people.",grammar:"「四人」是人數量詞。"},
+      {id:43,cat:"people",kana:"はは",romaji:"haha",kanji:"母",zh:"母親",en:"mother",sentence:"母は料理が上手です。",sRomaji:"Haha wa ryouri ga jouzu desu.",sZh:"媽媽很會做飯。",sEn:"My mother is good at cooking.",grammar:"「〜が上手です」表擅長。"},
+      {id:44,cat:"people",kana:"ちち",romaji:"chichi",kanji:"父",zh:"父親",en:"father",sentence:"父は会社員です。",sRomaji:"Chichi wa kaishain desu.",sZh:"爸爸是公司職員。",sEn:"My father is an office worker.",grammar:"「会社員」是職業名詞。"},
+      {id:45,cat:"people",kana:"こども",romaji:"kodomo",kanji:"子供",zh:"小孩",en:"child",sentence:"子供が公園で遊びます。",sRomaji:"Kodomo ga kouen de asobimasu.",sZh:"小孩在公園玩。",sEn:"The child plays in the park.",grammar:"「が」標示主語；「で」表地點。"},
+      {id:46,cat:"people",kana:"せんせい",romaji:"sensei",kanji:"先生",zh:"老師",en:"teacher",sentence:"先生に聞きます。",sRomaji:"Sensei ni kikimasu.",sZh:"我問老師。",sEn:"I ask the teacher.",grammar:"「に聞く」表向某人詢問。"},
+      {id:47,cat:"people",kana:"がくせい",romaji:"gakusei",kanji:"学生",zh:"學生",en:"student",sentence:"私は学生です。",sRomaji:"Watashi wa gakusei desu.",sZh:"我是學生。",sEn:"I am a student.",grammar:"「私は〜です」是基本自我介紹。"},
+      {id:48,cat:"work",kana:"しごと",romaji:"shigoto",kanji:"仕事",zh:"工作",en:"work/job",sentence:"仕事をします。",sRomaji:"Shigoto o shimasu.",sZh:"我工作。",sEn:"I work.",grammar:"「仕事をする」表工作。"},
+      {id:49,cat:"work",kana:"べんきょう",romaji:"benkyou",kanji:"勉強",zh:"學習",en:"study",sentence:"日本語を勉強します。",sRomaji:"Nihongo o benkyou shimasu.",sZh:"我學日文。",sEn:"I study Japanese.",grammar:"「名詞を勉強します」表學習某科目。"},
+      {id:50,cat:"time",kana:"やすみ",romaji:"yasumi",kanji:"休み",zh:"休息/假期",en:"rest/holiday",sentence:"明日は休みです。",sRomaji:"Ashita wa yasumi desu.",sZh:"明天是假期。",sEn:"Tomorrow is a day off.",grammar:"「休みです」表是休息日。"},
+
+      {id:51,cat:"time",kana:"じかん",romaji:"jikan",kanji:"時間",zh:"時間",en:"time",sentence:"時間があります。",sRomaji:"Jikan ga arimasu.",sZh:"我有時間。",sEn:"I have time.",grammar:"「があります」表有非生命物。"},
+      {id:52,cat:"object",kana:"おかね",romaji:"okane",kanji:"お金",zh:"錢",en:"money",sentence:"お金がありません。",sRomaji:"Okane ga arimasen.",sZh:"我沒有錢。",sEn:"I do not have money.",grammar:"「ありません」是「あります」的否定。"},
+      {id:53,cat:"weather",kana:"てんき",romaji:"tenki",kanji:"天気",zh:"天氣",en:"weather",sentence:"今日は天気がいいです。",sRomaji:"Kyou wa tenki ga ii desu.",sZh:"今天天氣很好。",sEn:"The weather is nice today.",grammar:"「天気がいい」是固定說法。"},
+      {id:54,cat:"weather",kana:"あめ",romaji:"ame",kanji:"雨",zh:"雨",en:"rain",sentence:"雨が降っています。",sRomaji:"Ame ga futte imasu.",sZh:"正在下雨。",sEn:"It is raining.",grammar:"「〜ています」表正在進行。"},
+      {id:55,cat:"weather",kana:"ゆき",romaji:"yuki",kanji:"雪",zh:"雪",en:"snow",sentence:"雪が降りました。",sRomaji:"Yuki ga furimashita.",sZh:"下雪了。",sEn:"It snowed.",grammar:"「降りました」是過去式。"},
+      {id:56,cat:"weather",kana:"かぜ",romaji:"kaze",kanji:"風",zh:"風",en:"wind",sentence:"風が強いです。",sRomaji:"Kaze ga tsuyoi desu.",sZh:"風很大。",sEn:"The wind is strong.",grammar:"「強い」是い形容詞。"},
+      {id:57,cat:"adjective",kana:"あつい",romaji:"atsui",kanji:"暑い",zh:"熱",en:"hot",sentence:"今日は暑いです。",sRomaji:"Kyou wa atsui desu.",sZh:"今天很熱。",sEn:"It is hot today.",grammar:"天氣熱用「暑い」。"},
+      {id:58,cat:"adjective",kana:"さむい",romaji:"samui",kanji:"寒い",zh:"冷",en:"cold",sentence:"冬は寒いです。",sRomaji:"Fuyu wa samui desu.",sZh:"冬天很冷。",sEn:"Winter is cold.",grammar:"「は」標示主題。"},
+      {id:59,cat:"adjective",kana:"おおきい",romaji:"ookii",kanji:"大きい",zh:"大",en:"big",sentence:"この部屋は大きいです。",sRomaji:"Kono heya wa ookii desu.",sZh:"這房間很大。",sEn:"This room is big.",grammar:"「この」修飾後面的名詞。"},
+      {id:60,cat:"adjective",kana:"ちいさい",romaji:"chiisai",kanji:"小さい",zh:"小",en:"small",sentence:"小さい犬がいます。",sRomaji:"Chiisai inu ga imasu.",sZh:"有一隻小狗。",sEn:"There is a small dog.",grammar:"有生命物用「います」。"},
+
+      {id:61,cat:"adjective",kana:"あたらしい",romaji:"atarashii",kanji:"新しい",zh:"新",en:"new",sentence:"新しいスマホを買いました。",sRomaji:"Atarashii sumaho o kaimashita.",sZh:"我買了新手機。",sEn:"I bought a new smartphone.",grammar:"い形容詞直接修飾名詞。"},
+      {id:62,cat:"adjective",kana:"ふるい",romaji:"furui",kanji:"古い",zh:"舊",en:"old",sentence:"古い本を読みます。",sRomaji:"Furui hon o yomimasu.",sZh:"我讀舊書。",sEn:"I read an old book.",grammar:"「古い + 名詞」。"},
+      {id:63,cat:"adjective",kana:"いい",romaji:"ii",kanji:"良い",zh:"好",en:"good",sentence:"この店はいいです。",sRomaji:"Kono mise wa ii desu.",sZh:"這間店很好。",sEn:"This shop is good.",grammar:"「いい」是常用形容詞。"},
+      {id:64,cat:"adjective",kana:"わるい",romaji:"warui",kanji:"悪い",zh:"壞",en:"bad",sentence:"天気が悪いです。",sRomaji:"Tenki ga warui desu.",sZh:"天氣不好。",sEn:"The weather is bad.",grammar:"「が」標示描述對象。"},
+      {id:65,cat:"adjective",kana:"たかい",romaji:"takai",kanji:"高い",zh:"高/貴",en:"tall/expensive",sentence:"この時計は高いです。",sRomaji:"Kono tokei wa takai desu.",sZh:"這隻手錶很貴。",sEn:"This watch is expensive.",grammar:"「高い」可解高或貴。"},
+      {id:66,cat:"adjective",kana:"やすい",romaji:"yasui",kanji:"安い",zh:"便宜",en:"cheap",sentence:"このパンは安いです。",sRomaji:"Kono pan wa yasui desu.",sZh:"這個麵包很便宜。",sEn:"This bread is cheap.",grammar:"「Aは形容詞です」。"},
+      {id:67,cat:"adjective",kana:"はやい",romaji:"hayai",kanji:"早い",zh:"早",en:"early",sentence:"朝早く起きます。",sRomaji:"Asa hayaku okimasu.",sZh:"我早上早起。",sEn:"I wake up early in the morning.",grammar:"い形容詞副詞化：「早い」→「早く」。"},
+      {id:68,cat:"adjective",kana:"おそい",romaji:"osoi",kanji:"遅い",zh:"遲/慢",en:"late/slow",sentence:"電車が遅いです。",sRomaji:"Densha ga osoi desu.",sZh:"電車很慢。",sEn:"The train is slow.",grammar:"「遅い」可解遲或慢。"},
+      {id:69,cat:"verb",kana:"たべる",romaji:"taberu",kanji:"食べる",zh:"吃",en:"eat",sentence:"毎朝パンを食べます。",sRomaji:"Maiasa pan o tabemasu.",sZh:"我每天早上吃麵包。",sEn:"I eat bread every morning.",grammar:"動詞ます形：「食べる」→「食べます」。"},
+      {id:70,cat:"verb",kana:"のむ",romaji:"nomu",kanji:"飲む",zh:"喝",en:"drink",sentence:"水を飲みます。",sRomaji:"Mizu o nomimasu.",sZh:"我喝水。",sEn:"I drink water.",grammar:"「を」標示喝的東西。"},
+
+      {id:71,cat:"verb",kana:"みる",romaji:"miru",kanji:"見る",zh:"看",en:"see/watch",sentence:"テレビを見ます。",sRomaji:"Terebi o mimasu.",sZh:"我看電視。",sEn:"I watch TV.",grammar:"「見る」的ます形是「見ます」。"},
+      {id:72,cat:"verb",kana:"きく",romaji:"kiku",kanji:"聞く",zh:"聽/問",en:"listen/ask",sentence:"音楽を聞きます。",sRomaji:"Ongaku o kikimasu.",sZh:"我聽音樂。",sEn:"I listen to music.",grammar:"「聞く」可指聽或詢問。"},
+      {id:73,cat:"verb",kana:"はなす",romaji:"hanasu",kanji:"話す",zh:"說話",en:"speak/talk",sentence:"日本語を話します。",sRomaji:"Nihongo o hanashimasu.",sZh:"我說日文。",sEn:"I speak Japanese.",grammar:"「語言 + を話します」。"},
+      {id:74,cat:"verb",kana:"よむ",romaji:"yomu",kanji:"読む",zh:"讀",en:"read",sentence:"新聞を読みます。",sRomaji:"Shinbun o yomimasu.",sZh:"我讀報紙。",sEn:"I read a newspaper.",grammar:"「読みます」是禮貌形。"},
+      {id:75,cat:"verb",kana:"かく",romaji:"kaku",kanji:"書く",zh:"寫",en:"write",sentence:"名前を書きます。",sRomaji:"Namae o kakimasu.",sZh:"我寫名字。",sEn:"I write my name.",grammar:"「名前を書く」是寫名字。"},
+      {id:76,cat:"verb",kana:"いく",romaji:"iku",kanji:"行く",zh:"去",en:"go",sentence:"スーパーへ行きます。",sRomaji:"Suupaa e ikimasu.",sZh:"我去超市。",sEn:"I go to the supermarket.",grammar:"「へ」表方向。"},
+      {id:77,cat:"verb",kana:"くる",romaji:"kuru",kanji:"来る",zh:"來",en:"come",sentence:"友達が来ます。",sRomaji:"Tomodachi ga kimasu.",sZh:"朋友會來。",sEn:"My friend will come.",grammar:"「来る」是不規則動詞。"},
+      {id:78,cat:"verb",kana:"かえる",romaji:"kaeru",kanji:"帰る",zh:"回去",en:"return",sentence:"家に帰ります。",sRomaji:"Ie ni kaerimasu.",sZh:"我回家。",sEn:"I go home.",grammar:"「に帰ります」表回到某地。"},
+      {id:79,cat:"verb",kana:"ねる",romaji:"neru",kanji:"寝る",zh:"睡覺",en:"sleep",sentence:"十一時に寝ます。",sRomaji:"Juuichi-ji ni nemasu.",sZh:"我十一點睡覺。",sEn:"I sleep at eleven.",grammar:"具體時間用「に」。"},
+      {id:80,cat:"verb",kana:"おきる",romaji:"okiru",kanji:"起きる",zh:"起床",en:"wake up",sentence:"七時に起きます。",sRomaji:"Shichi-ji ni okimasu.",sZh:"我七點起床。",sEn:"I wake up at seven.",grammar:"「時間 + に + 動詞」。"},
+
+      {id:81,cat:"verb",kana:"かう",romaji:"kau",kanji:"買う",zh:"買",en:"buy",sentence:"牛乳を買います。",sRomaji:"Gyuunyuu o kaimasu.",sZh:"我買牛奶。",sEn:"I buy milk.",grammar:"「を買います」表買某物。"},
+      {id:82,cat:"verb",kana:"うる",romaji:"uru",kanji:"売る",zh:"賣",en:"sell",sentence:"店で服を売ります。",sRomaji:"Mise de fuku o urimasu.",sZh:"在店裡賣衣服。",sEn:"I sell clothes at the shop.",grammar:"「で」表動作地點。"},
+      {id:83,cat:"verb",kana:"つかう",romaji:"tsukau",kanji:"使う",zh:"使用",en:"use",sentence:"パソコンを使います。",sRomaji:"Pasokon o tsukaimasu.",sZh:"我使用電腦。",sEn:"I use a computer.",grammar:"「使います」是ます形。"},
+      {id:84,cat:"verb",kana:"つくる",romaji:"tsukuru",kanji:"作る",zh:"做/製作",en:"make",sentence:"晩ご飯を作ります。",sRomaji:"Bangohan o tsukurimasu.",sZh:"我做晚餐。",sEn:"I make dinner.",grammar:"「作る」表製作。"},
+      {id:85,cat:"verb",kana:"あう",romaji:"au",kanji:"会う",zh:"見面",en:"meet",sentence:"友達に会います。",sRomaji:"Tomodachi ni aimasu.",sZh:"我見朋友。",sEn:"I meet my friend.",grammar:"「人に会う」表見某人。"},
+      {id:86,cat:"verb",kana:"まつ",romaji:"matsu",kanji:"待つ",zh:"等待",en:"wait",sentence:"駅で待ちます。",sRomaji:"Eki de machimasu.",sZh:"我在車站等。",sEn:"I wait at the station.",grammar:"「で」表等待地點。"},
+      {id:87,cat:"verb",kana:"あるく",romaji:"aruku",kanji:"歩く",zh:"走路",en:"walk",sentence:"公園を歩きます。",sRomaji:"Kouen o arukimasu.",sZh:"我在公園散步。",sEn:"I walk in the park.",grammar:"移動經過範圍可用「を」。"},
+      {id:88,cat:"verb",kana:"はしる",romaji:"hashiru",kanji:"走る",zh:"跑",en:"run",sentence:"毎朝走ります。",sRomaji:"Maiasa hashirimasu.",sZh:"我每天早上跑步。",sEn:"I run every morning.",grammar:"時間副詞可放句首。"},
+      {id:89,cat:"verb",kana:"あそぶ",romaji:"asobu",kanji:"遊ぶ",zh:"玩",en:"play",sentence:"子供が遊びます。",sRomaji:"Kodomo ga asobimasu.",sZh:"小孩在玩。",sEn:"The child plays.",grammar:"「が」標示動作者。"},
+      {id:90,cat:"verb",kana:"はたらく",romaji:"hataraku",kanji:"働く",zh:"工作",en:"work",sentence:"会社で働きます。",sRomaji:"Kaisha de hatarakimasu.",sZh:"我在公司工作。",sEn:"I work at a company.",grammar:"「で働く」表工作地點。"},
+
+      {id:91,cat:"adjective",kana:"きれい",romaji:"kirei",kanji:"綺麗",zh:"漂亮/乾淨",en:"beautiful/clean",sentence:"この部屋はきれいです。",sRomaji:"Kono heya wa kirei desu.",sZh:"這房間很乾淨。",sEn:"This room is clean.",grammar:"「きれい」是な形容詞。"},
+      {id:92,cat:"adjective",kana:"しずか",romaji:"shizuka",kanji:"静か",zh:"安靜",en:"quiet",sentence:"図書館は静かです。",sRomaji:"Toshokan wa shizuka desu.",sZh:"圖書館很安靜。",sEn:"The library is quiet.",grammar:"な形容詞作謂語直接接「です」。"},
+      {id:93,cat:"adjective",kana:"にぎやか",romaji:"nigiyaka",kanji:"賑やか",zh:"熱鬧",en:"lively",sentence:"この町はにぎやかです。",sRomaji:"Kono machi wa nigiyaka desu.",sZh:"這個城鎮很熱鬧。",sEn:"This town is lively.",grammar:"「にぎやか」是な形容詞。"},
+      {id:94,cat:"adjective",kana:"べんり",romaji:"benri",kanji:"便利",zh:"方便",en:"convenient",sentence:"このアプリは便利です。",sRomaji:"Kono apuri wa benri desu.",sZh:"這個 app 很方便。",sEn:"This app is convenient.",grammar:"「便利」是な形容詞。"},
+      {id:95,cat:"adjective",kana:"たいへん",romaji:"taihen",kanji:"大変",zh:"辛苦/嚴重",en:"hard/serious",sentence:"仕事は大変です。",sRomaji:"Shigoto wa taihen desu.",sZh:"工作很辛苦。",sEn:"Work is hard.",grammar:"「大変です」表辛苦/困難。"},
+      {id:96,cat:"adjective",kana:"すき",romaji:"suki",kanji:"好き",zh:"喜歡",en:"like",sentence:"日本料理が好きです。",sRomaji:"Nihon ryouri ga suki desu.",sZh:"我喜歡日本料理。",sEn:"I like Japanese food.",grammar:"喜歡的對象用「が」。"},
+      {id:97,cat:"adjective",kana:"きらい",romaji:"kirai",kanji:"嫌い",zh:"討厭",en:"dislike",sentence:"雨が嫌いです。",sRomaji:"Ame ga kirai desu.",sZh:"我討厭下雨。",sEn:"I dislike rain.",grammar:"「嫌い」是な形容詞。"},
+      {id:98,cat:"adjective",kana:"じょうず",romaji:"jouzu",kanji:"上手",zh:"擅長",en:"good at",sentence:"彼は歌が上手です。",sRomaji:"Kare wa uta ga jouzu desu.",sZh:"他很會唱歌。",sEn:"He is good at singing.",grammar:"擅長的內容用「が」。"},
+      {id:99,cat:"adjective",kana:"へた",romaji:"heta",kanji:"下手",zh:"不擅長",en:"poor at",sentence:"私は料理が下手です。",sRomaji:"Watashi wa ryouri ga heta desu.",sZh:"我不擅長做飯。",sEn:"I am poor at cooking.",grammar:"「下手」是な形容詞。"},
+      {id:100,cat:"adjective",kana:"だいじょうぶ",romaji:"daijoubu",kanji:"大丈夫",zh:"沒問題",en:"okay/all right",sentence:"大丈夫ですか。",sRomaji:"Daijoubu desu ka.",sZh:"你沒事嗎？",sEn:"Are you okay?",grammar:"「か」放句尾表示疑問。"}
+    ];
+
+    const tableBody = document.getElementById("tableBody");
+    const cards = document.getElementById("cards");
+    const searchInput = document.getElementById("searchInput");
+    const categorySelect = document.getElementById("categorySelect");
+    const daySelect = document.getElementById("daySelect");
+    const count = document.getElementById("count");
+    const noResults = document.getElementById("noResults");
+
+    let japaneseVoice = null;
+
+    function loadVoices() {
+      const voices = window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
+      japaneseVoice =
+        voices.find(voice => voice.lang === "ja-JP") ||
+        voices.find(voice => voice.lang && voice.lang.startsWith("ja")) ||
+        null;
+    }
+
+    if ("speechSynthesis" in window) {
+      loadVoices();
+      window.speechSynthesis.onvoiceschanged = loadVoices;
+    }
+
+    function speakJapanese(text) {
+      if (!("speechSynthesis" in window)) {
+        alert("你的瀏覽器不支援語音功能。請試試 Chrome、Edge 或 Safari。");
+        return;
+      }
+
+      loadVoices();
+
+      window.speechSynthesis.cancel();
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = "ja-JP";
+      utterance.rate = 0.85;
+      utterance.pitch = 1;
+      utterance.volume = 1;
+
+      if (japaneseVoice) {
+        utterance.voice = japaneseVoice;
+      }
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function escapeHTML(str) {
+      return String(str).replace(/[&<>"']/g, function(match) {
+        return {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          "\"": "&quot;",
+          "'": "&#039;"
+        }[match];
+      });
+    }
+
+    function jsString(str) {
+      return String(str)
+        .replace(/\\/g, "\\\\")
+        .replace(/'/g, "\\'")
+        .replace(/\n/g, "\\n")
+        .replace(/\r/g, "");
+    }
+
+    function highlight(text, keyword) {
+      const safe = escapeHTML(text);
+      if (!keyword) return safe;
+
+      const escapedKeyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      const regex = new RegExp("(" + escapedKeyword + ")", "gi");
+      return safe.replace(regex, "<mark>$1</mark>");
+    }
+
+    function itemMatchesSearch(item, keyword) {
+      if (!keyword) return true;
+
+      const haystack = [
+        item.kana,
+        item.romaji,
+        item.kanji,
+        item.zh,
+        item.en,
+        item.sentence,
+        item.sRomaji,
+        item.sZh,
+        item.sEn,
+        item.grammar
+      ].join(" ").toLowerCase();
+
+      return haystack.includes(keyword.toLowerCase());
+    }
+
+    function itemMatchesDay(item, day) {
+      if (day === "all") return true;
+
+      const d = Number(day);
+      const start = (d - 1) * 10 + 1;
+      const end = d * 10;
+
+      return item.id >= start && item.id <= end;
+    }
+
+    function soundButton(text, title) {
+      return `
+        <button
+          class="sound-btn"
+          type="button"
+          title="${escapeHTML(title)}"
+          aria-label="${escapeHTML(title)}"
+          onclick="event.stopPropagation(); speakJapanese('${jsString(text)}')"
+        >🔊</button>
+      `;
+    }
+
+    function render() {
+      const keyword = searchInput.value.trim();
+      const cat = categorySelect.value;
+      const day = daySelect.value;
+
+      const filtered = vocab.filter(item => {
+        const catOk = cat === "all" || item.cat === cat;
+        const dayOk = itemMatchesDay(item, day);
+        const searchOk = itemMatchesSearch(item, keyword);
+        return catOk && dayOk && searchOk;
+      });
+
+      count.textContent = filtered.length;
+      noResults.style.display = filtered.length === 0 ? "block" : "none";
+
+      tableBody.innerHTML = filtered.map(item => `
+        <tr>
+          <td class="num">${item.id}</td>
+          <td class="kana">
+            ${highlight(item.kana, keyword)}
+            ${soundButton(item.kana, "播放單字發音")}
+          </td>
+          <td class="romaji">${highlight(item.romaji, keyword)}</td>
+          <td class="kanji">${highlight(item.kanji, keyword)}</td>
+          <td class="meaning">${highlight(item.zh, keyword)}</td>
+          <td class="english">${highlight(item.en, keyword)}</td>
+          <td>
+            <details>
+              <summary>
+                ${highlight(item.sentence, keyword)}
+                ${soundButton(item.sentence, "播放例句發音")}
+              </summary>
+              <div class="sentence-box">
+                <div><span class="label">Romaji：</span>${highlight(item.sRomaji, keyword)}</div>
+                <div><span class="label">中文：</span>${highlight(item.sZh, keyword)}</div>
+                <div><span class="label">English：</span>${highlight(item.sEn, keyword)}</div>
+                <div class="grammar"><strong>語法：</strong>${highlight(item.grammar, keyword)}</div>
+              </div>
+            </details>
+          </td>
+        </tr>
+      `).join("");
+
+      cards.innerHTML = filtered.map(item => `
+        <article class="vocab-card">
+          <div class="card-top">
+            <div>
+              <div class="card-kana">
+                ${highlight(item.kana, keyword)}
+                ${soundButton(item.kana, "播放單字發音")}
+              </div>
+              <div class="card-kanji">${highlight(item.kanji, keyword)}</div>
+            </div>
+            <div class="card-number">#${item.id}</div>
+          </div>
+
+          <div class="card-grid">
+            <div><span class="label">Romaji：</span><span class="romaji">${highlight(item.romaji, keyword)}</span></div>
+            <div><span class="label">中文：</span><strong>${highlight(item.zh, keyword)}</strong></div>
+            <div><span class="label">English：</span>${highlight(item.en, keyword)}</div>
+          </div>
+
+          <div class="mobile-sentence">
+            <div class="jp-sentence">
+              ${highlight(item.sentence, keyword)}
+              ${soundButton(item.sentence, "播放例句發音")}
+            </div>
+            <div><span class="label">Romaji：</span>${highlight(item.sRomaji, keyword)}</div>
+            <div><span class="label">中文：</span>${highlight(item.sZh, keyword)}</div>
+            <div><span class="label">English：</span>${highlight(item.sEn, keyword)}</div>
+            <div class="grammar"><strong>語法：</strong>${highlight(item.grammar, keyword)}</div>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    searchInput.addEventListener("input", render);
+    categorySelect.addEventListener("change", render);
+    daySelect.addEventListener("change", render);
+
+    document.getElementById("expandAll").addEventListener("click", () => {
+      document.querySelectorAll("details").forEach(d => d.open = true);
+    });
+
+    document.getElementById("collapseAll").addEventListener("click", () => {
+      document.querySelectorAll("details").forEach(d => d.open = false);
+    });
+
+    document.getElementById("printBtn").addEventListener("click", () => {
+      window.print();
+    });
+
+    render();
+  </script>
+</body>
+</html>
