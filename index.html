@@ -6,220 +6,363 @@
   <title>日文生活常用短句學習</title>
   <style>
     * {
-      box-sizing: border-box;
-    }
+  box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
-        "Noto Sans JP", Arial, sans-serif;
-      background: linear-gradient(135deg, #fdf2f8, #eff6ff);
-      color: #1f2937;
-      line-height: 1.6;
-    }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
+    "Noto Sans JP", Arial, sans-serif;
+  background:
+    radial-gradient(circle at 80% 8%, rgba(255, 196, 87, 0.35), transparent 16%),
+    linear-gradient(180deg, #e0f2fe 0%, #f8fbff 42%, #fff1f2 100%);
+  color: #1e3a5f;
+  line-height: 1.6;
+}
 
-    header {
-      background: linear-gradient(135deg, #ef4444, #ec4899);
-      color: white;
-      padding: 32px 20px;
-      text-align: center;
-    }
+header {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb 45%, #93c5fd);
+  color: white;
+  padding: 42px 20px 58px;
+  text-align: center;
+  box-shadow: 0 12px 28px rgba(30, 58, 138, 0.25);
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-      letter-spacing: 1px;
-    }
+/* 富士山輪廓 */
+header::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -42px;
+  transform: translateX(-50%);
+  width: 360px;
+  height: 170px;
+  background: linear-gradient(180deg, #f8fafc 0 23%, #475569 24% 100%);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  opacity: 0.95;
+  z-index: 0;
+}
 
-    header p {
-      margin: 10px 0 0;
-      opacity: 0.95;
-      font-size: 1rem;
-    }
+/* 雪頂陰影 */
+header::after {
+  content: "";
+  position: absolute;
+  left: calc(50% - 44px);
+  bottom: 60px;
+  width: 88px;
+  height: 48px;
+  background: #ffffff;
+  clip-path: polygon(
+    50% 0%,
+    30% 48%,
+    42% 40%,
+    50% 70%,
+    61% 38%,
+    72% 52%
+  );
+  opacity: 0.98;
+  z-index: 1;
+}
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 24px 16px 48px;
-    }
+header h1,
+header p {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 8px rgba(15, 23, 42, 0.25);
+}
 
-    .toolbar {
-      background: white;
-      border-radius: 20px;
-      padding: 18px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-      margin-bottom: 24px;
-      display: grid;
-      gap: 14px;
-    }
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
 
-    .search-box input,
-    .filter-box select {
-      width: 100%;
-      padding: 14px 16px;
-      border: 1px solid #d1d5db;
-      border-radius: 14px;
-      font-size: 1rem;
-      outline: none;
-      background: #fff;
-    }
+header p {
+  margin: 10px 0 0;
+  opacity: 0.95;
+  font-size: 1rem;
+}
 
-    .search-box input:focus,
-    .filter-box select:focus {
-      border-color: #ec4899;
-      box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15);
-    }
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 16px 48px;
+}
 
-    .stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 0.95rem;
-    }
+.toolbar {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.12);
+  margin-bottom: 24px;
+  display: grid;
+  gap: 14px;
+  border: 1px solid #bfdbfe;
+  backdrop-filter: blur(8px);
+}
 
-    .badge {
-      background: #fce7f3;
-      color: #9d174d;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-weight: 600;
-    }
+.search-box input,
+.filter-box select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #bfdbfe;
+  border-radius: 14px;
+  font-size: 1rem;
+  outline: none;
+  background: #ffffff;
+  color: #1e3a5f;
+}
 
-    .section-title {
-      margin: 30px 0 14px;
-      font-size: 1.35rem;
-      color: #be123c;
-      border-left: 6px solid #ec4899;
-      padding-left: 12px;
-    }
+.search-box input::placeholder {
+  color: #93c5fd;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-    }
+.search-box input:focus,
+.filter-box select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.16);
+}
 
-    .card {
-      background: white;
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s, border 0.2s;
-      border: 2px solid transparent;
-      position: relative;
-      overflow: hidden;
-    }
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.95rem;
+}
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
-    }
+.badge {
+  background: linear-gradient(135deg, #dbeafe, #fce7f3);
+  color: #1e3a8a;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  border: 1px solid #bfdbfe;
+}
 
-    .card.learned {
-      border-color: #22c55e;
-      background: #f0fdf4;
-    }
+.section-title {
+  margin: 30px 0 14px;
+  font-size: 1.35rem;
+  color: #1e3a8a;
+  border-left: 6px solid #ef4444;
+  padding-left: 12px;
+  position: relative;
+}
 
-    .card.learned::after {
-      content: "已學會";
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: #22c55e;
-      color: white;
-      font-size: 0.75rem;
-      padding: 4px 8px;
-      border-radius: 999px;
-      font-weight: bold;
-    }
+.section-title::after {
+  content: " 🗻";
+  font-size: 1.1rem;
+}
 
-    .jp {
-      font-size: 1.65rem;
-      font-weight: 700;
-      color: #111827;
-      margin-bottom: 8px;
-      font-family: "Noto Sans JP", sans-serif;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
 
-    .romaji {
-      color: #2563eb;
-      font-weight: 700;
-      margin-bottom: 10px;
-      font-size: 1rem;
-    }
+.card {
+  background:
+    radial-gradient(circle at top right, rgba(252, 231, 243, 0.9), transparent 30%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(239, 246, 255, 0.96));
+  border-radius: 22px;
+  padding: 20px;
+  box-shadow: 0 10px 22px rgba(30, 58, 138, 0.13);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border 0.2s,
+    background 0.2s;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
 
-    .meaning {
-      font-size: 1.08rem;
-      color: #374151;
-      margin-bottom: 10px;
-    }
+/* 卡片右上角迷你太陽 */
+.card::before {
+  content: "";
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  right: -26px;
+  top: -26px;
+  background: radial-gradient(circle, #fb7185 0 32%, #fdba74 33% 54%, transparent 56%);
+  opacity: 0.45;
+  pointer-events: none;
+}
 
-    .usage {
-      font-size: 0.9rem;
-      color: #6b7280;
-      background: #f3f4f6;
-      display: inline-block;
-      padding: 5px 10px;
-      border-radius: 999px;
-    }
+/* 卡片底部富士山淡影 */
+.card::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  bottom: -28px;
+  width: 120px;
+  height: 70px;
+  background: linear-gradient(180deg, #ffffff 0 24%, #bfdbfe 25% 100%);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  opacity: 0.55;
+  pointer-events: none;
+}
 
-    .play {
-      margin-top: 14px;
-      border: none;
-      background: #ec4899;
-      color: white;
-      padding: 9px 12px;
-      border-radius: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(30, 58, 138, 0.2);
+  border-color: #93c5fd;
+}
 
-    .play:hover {
-      background: #db2777;
-    }
+.card.learned {
+  border-color: #ef4444;
+  background:
+    radial-gradient(circle at top right, rgba(254, 202, 202, 0.9), transparent 32%),
+    linear-gradient(180deg, #fff7ed, #eff6ff);
+}
 
-    .note {
-      background: #fffbeb;
-      border: 1px solid #fde68a;
-      color: #92400e;
-      padding: 16px;
-      border-radius: 16px;
-      margin-bottom: 22px;
-    }
+.card.learned::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  bottom: -28px;
+  width: 120px;
+  height: 70px;
+  background: linear-gradient(180deg, #ffffff 0 24%, #93c5fd 25% 100%);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  opacity: 0.55;
+  pointer-events: none;
+}
 
-    .hidden {
-      display: none;
-    }
+.card.learned .learned-label {
+  display: inline-block;
+}
 
-    footer {
-      text-align: center;
-      color: #6b7280;
-      padding: 30px 16px;
-      font-size: 0.9rem;
-    }
+.jp {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #172554;
+  margin-bottom: 8px;
+  font-family: "Noto Sans JP", sans-serif;
+  position: relative;
+  z-index: 1;
+}
 
-    @media (min-width: 720px) {
-      .toolbar {
-        grid-template-columns: 1fr 220px;
-        align-items: center;
-      }
+.romaji {
+  color: #2563eb;
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  position: relative;
+  z-index: 1;
+}
 
-      .stats {
-        grid-column: 1 / -1;
-      }
-    }
+.meaning {
+  font-size: 1.08rem;
+  color: #334155;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
 
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 1.6rem;
-      }
+.usage {
+  font-size: 0.9rem;
+  color: #1e3a8a;
+  background: #dbeafe;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid #bfdbfe;
+  position: relative;
+  z-index: 1;
+}
 
-      .jp {
-        font-size: 1.45rem;
-      }
-    }
+.play {
+  margin-top: 14px;
+  border: none;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb 55%, #ef4444);
+  color: white;
+  padding: 9px 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.9rem;
+  box-shadow: 0 7px 14px rgba(37, 99, 235, 0.25);
+  position: relative;
+  z-index: 1;
+}
+
+.play:hover {
+  background: linear-gradient(135deg, #172554, #1d4ed8 55%, #dc2626);
+}
+
+.note {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(219, 234, 254, 0.92));
+  border: 1px solid #bfdbfe;
+  color: #1e3a5f;
+  padding: 16px;
+  border-radius: 18px;
+  margin-bottom: 22px;
+  box-shadow: 0 8px 18px rgba(30, 58, 138, 0.1);
+}
+
+.hidden {
+  display: none;
+}
+
+footer {
+  text-align: center;
+  color: #1e3a8a;
+  padding: 30px 16px;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 720px) {
+  .toolbar {
+    grid-template-columns: 1fr 220px;
+    align-items: center;
+  }
+
+  .stats {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding-bottom: 52px;
+  }
+
+  header h1 {
+    font-size: 1.55rem;
+  }
+
+  header::before {
+    width: 280px;
+    height: 140px;
+    bottom: -38px;
+  }
+
+  header::after {
+    bottom: 49px;
+  }
+
+  .jp {
+    font-size: 1.45rem;
+  }
+}
+    
+  .learned-label {
+    display: none;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: linear-gradient(135deg, #ef4444, #fb7185);
+    color: white;
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-weight: bold;
+    z-index: 3;
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.25);
+  }
+    
   </style>
 </head>
 <body>
@@ -804,13 +947,14 @@
           }
 
           card.innerHTML = `
-            <div class="jp">${phrase.jp}</div>
-            <div class="romaji">讀音：${phrase.romaji}</div>
-            <div class="meaning">${phrase.meaning}</div>
-            <div class="usage">${phrase.usage}</div>
-            <br />
-            <button class="play" type="button">播放讀音</button>
-          `;
+          <span class="learned-label">已登頂</span>
+          <div class="jp">${phrase.jp}</div>
+          <div class="romaji">讀音：${phrase.romaji}</div>
+          <div class="meaning">${phrase.meaning}</div>
+          <div class="usage">${phrase.usage}</div>
+          <br />
+          <button class="play" type="button">播放讀音</button>
+        `;
 
           card.addEventListener("click", function () {
             if (learnedSet.has(phrase.originalIndex)) {
